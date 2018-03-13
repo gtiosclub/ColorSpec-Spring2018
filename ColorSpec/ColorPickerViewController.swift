@@ -10,14 +10,14 @@ import UIKit
 
 class ColorPickerViewController: UIViewController {
     
-    func initialize(startingColor: UIColor, callback: ColorListViewController) {
+    func initialize(startingColor: UIColor, callback: @escaping (UIColor) -> ()) {
         self.startColor = startingColor
         self.callback = callback
     }
 
     //MARK: - Properties
 
-    var callback: ColorListViewController?
+    var callback: ((_ color: UIColor) -> ())?
 
     private var startColor: UIColor = .white
     
@@ -53,7 +53,7 @@ class ColorPickerViewController: UIViewController {
     }
     
     @IBAction func donePressed(_ sender: Any) {
-        self.callback?.heyManIEditedThisColor(color: self.currentColor)
+        self.callback?(self.currentColor)
         self.navigationController?.popViewController(animated: true)
     }
 }

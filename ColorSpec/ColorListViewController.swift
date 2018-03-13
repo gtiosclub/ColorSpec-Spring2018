@@ -27,14 +27,12 @@ class ColorListViewController : UIViewController {
             if let cell = sender as? UICollectionViewCell,
                 let indexPath = collectionView.indexPath(for: cell) {
                 let color = colors[indexPath.row]
-                destination.initialize(startingColor: color, callback: self)
+                destination.initialize(startingColor: color, callback: { (newColor) in
+                    self.colors[indexPath.row] = newColor
+                    self.collectionView.reloadData()
+                })
             }
         }
-    }
-    
-    func heyManIEditedThisColor(color: UIColor) {
-        colors[0] = color
-        collectionView.reloadData()
     }
 }
 
