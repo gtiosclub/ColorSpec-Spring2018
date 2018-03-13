@@ -10,14 +10,14 @@ import UIKit
 
 class ColorPickerViewController: UIViewController {
     
-    func initialize(startingColor: UIColor, callback: @escaping (UIColor) -> ()) {
+    func initialize(startingColor: UIColor = .white, callback: @escaping (UIColor) -> ()) {
         self.startColor = startingColor
         self.callback = callback
     }
 
     //MARK: - Properties
 
-    var callback: ((_ color: UIColor) -> ())?
+    var callback: ((UIColor) -> ())?
 
     private var startColor: UIColor = .white
     

@@ -52,7 +52,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="IDn-FB-28J"/>
+                    <navigationItem key="navigationItem" id="IDn-FB-28J">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="eY1-FM-iAq">
+                            <connections>
+                                <segue destination="LFm-R8-7PS" kind="show" id="bbg-Yp-Q8D"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="hDF-E8-lql" id="CQ4-G9-cSP"/>
                     </connections>
@@ -180,4 +186,7 @@
             <point key="canvasLocation" x="356" y="34"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="rjZ-16-MNJ"/>
+    </inferredMetricsTieBreakers>
 </document>

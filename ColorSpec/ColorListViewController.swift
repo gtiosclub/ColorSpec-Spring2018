@@ -24,14 +24,23 @@ class ColorListViewController : UIViewController {
         if let destination = segue.destination as? ColorPickerViewController {
             
             // Do we have a color to give it?
+            
             if let cell = sender as? UICollectionViewCell,
                 let indexPath = collectionView.indexPath(for: cell) {
                 let color = colors[indexPath.row]
                 destination.initialize(startingColor: color, callback: { (newColor) in
+                    // Change color
                     self.colors[indexPath.row] = newColor
                     self.collectionView.reloadData()
                 })
+            } else {
+                destination.initialize(callback: { (newColor) in
+                    // New color
+                    self.colors.insert(newColor, at: 0)
+                    self.collectionView.reloadData()
+                })
             }
+            
         }
     }
 }
